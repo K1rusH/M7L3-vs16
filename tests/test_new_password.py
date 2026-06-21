@@ -16,14 +16,11 @@ def test_password_characters():
 Тест, что два сгенерированных подряд пароля различаются
 """
 
-def test_password_length():
-    length = 12
-    password = generate_password(length)
+def test_lengthpass():
+    """Тест: длина пароля должна соответствовать заданной"""
+    assert len(generate_password(12)) == 12
 
-    assert len(password) == length
 
-def test_empty_password():
-    """Тест генерации пустого пароля"""
-    password = generate_password(0)
-
-    assert password == ""
+def test_diffpass():
+    """Тест: два сгенерированных пароля должны различаться"""
+    assert generate_password(12) != generate_password(12)
