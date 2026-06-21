@@ -17,7 +17,13 @@ def test_password_characters():
 """
 
 def test_password_length():
-    length = 20
+    length = 12
     password = generate_password(length)
 
     assert len(password) == length
+
+def test_empty_password():
+    """Тест генерации пустого пароля"""
+    password = generate_password(0)
+
+    assert password == ""
