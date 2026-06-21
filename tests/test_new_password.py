@@ -8,6 +8,24 @@ def test_password_characters():
     for char in password:
         assert char in valid_characters
 
+
+def test_len_password():
+    password = generate_password(42)
+    assert len(password) == 42, "Длина не соответсвует заданной"
+
+def test_two_passwords():
+    password_1 = generate_password(12)
+    password_2 = generate_password(12)
+    assert password_1 != password_2, "Пароли одинаковые"
+
+def test_len_0_password():
+    password = generate_password(0)
+    assert len(password) == 0
+
+def test_len_minus_password():
+    password = generate_password(-12)
+    assert len(password) == 0
+
 """
 Допиши еще один тест из предложенных. Или придумай свой.
 Если сможешь написать больше, то будет круто!
